@@ -1,16 +1,16 @@
 // Photos used in the memory slider
 // Make sure these names exactly match your image file names.
 const photos = [
-    "photo1.jpg",
-    "photo2.jpg",
-    "photo3.jpg",
-    "photo4.jpg",
-    "photo5.jpg",
-    "photo6.jpg",
-    "photo7.jpg",
-    "photo8.jpg",
-    "photo9.jpg",
-    "photo10.jpg"
+    "photo1.jpeg",
+    "photo2.jpeg",
+    "photo3.jpeg",
+    "photo4.jpeg",
+    "photo5.jpeg",
+    "photo6.jpeg",
+    "photo7.jpeg",
+    "photo8.jpeg",
+    "photo9.jpeg",
+    "photo10.jpeg"
 ];
 
 // Selecting HTML elements
