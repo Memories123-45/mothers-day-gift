@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Gift Full of Memories</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Floating hearts background -->
+    <div class="hearts-container">
+        <span>💗</span>
+        <span>🌸</span>
+        <span>💖</span>
+        <span>🌷</span>
+        <span>💕</span>
+        <span>🌼</span>
+    </div>
+
+    <!-- Main Website Container -->
+    <main class="main-container">
+
+        <!-- Gift Section -->
+        <section class="gift-section" id="giftSection">
+
+            <h1>A Small Gift For You</h1>
+
+            <p class="subtitle">
+                Made with love, smiles, and beautiful memories 💝
+            </p>
+
+            <!-- Gift Box -->
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid"></div>
+                <div class="gift-body">
+                    <div class="gift-ribbon-vertical"></div>
+                    <div class="gift-ribbon-horizontal"></div>
+                </div>
+            </div>
+
+            <button class="open-btn" id="openGiftBtn">
+                Open the Gift 🎁
+            </button>
+
+        </section>
+
+        <!-- Wish Section -->
+        <section class="wish-section hidden" id="wishSection">
+
+            <h2>Happy Mother’s Day 💐</h2>
+
+
+            <p>
+                This is a small digital gift filled with memories.
+            </p>
+
+            <button class="memory-btn" id="startMemoryBtn">
+                Swipe to walk down memory lane →
+            </button>
+
+        </section>
+
+        <!-- Memory Lane Section -->
+        <section class="memory-section hidden" id="memorySection">
+
+            <!-- Background open gift box -->
+            <div class="background-gift">
+                <div class="bg-gift-lid"></div>
+                <div class="bg-gift-body"></div>
+            </div>
+
+            <h2>Memory Lane 💕</h2>
+
+            <p class="memory-subtitle">
+                Swipe left or right to view the memories
+            </p>
+
+            <!-- Photo Viewer -->
+            <div class="slider-container">
+
+                <button class="nav-btn left-btn" id="prevBtn">
+                    ❮
+                </button>
+
+                <div class="photo-card" id="photoCard">
+                    <img src="photo1.jpg" alt="Memory photo" id="memoryImage">
+                </div>
+
+                <button class="nav-btn right-btn" id="nextBtn">
+                    ❯
+                </button>
+
+            </div>
+
+            <!-- Counter -->
+            <p class="photo-counter" id="photoCounter">
+                1 / 10
+            </p>
+
+            <!-- Dots -->
+            <div class="dots-container" id="dotsContainer"></div>
+
+            <!-- Final message appears after last photo -->
+            <div class="final-message hidden" id="finalMessage">
+                <h3>With Lots of Love ❤️</h3>
+
+                <button class="replay-btn" id="replayBtn">
+                    View Again
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
