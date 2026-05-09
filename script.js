@@ -1,16 +1,16 @@
 // Photos used in the memory slider
-// Rename your images exactly like this OR change these names here.
+// Make sure these names exactly match your image file names.
 const photos = [
-    "photo1.jpeg",
-    "photo2.jpeg",
-    "photo3.jpeg",
-    "photo4.jpeg",
-    "photo5.jpeg",
-    "photo6.jpeg",
-    "photo7.jpeg",
-    "photo8.jpeg",
-    "photo9.jpeg",
-    "photo10.jpeg"
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg",
+    "photo4.jpg",
+    "photo5.jpg",
+    "photo6.jpg",
+    "photo7.jpg",
+    "photo8.jpg",
+    "photo9.jpg",
+    "photo10.jpg"
 ];
 
 // Selecting HTML elements
@@ -23,6 +23,7 @@ const openGiftBtn = document.getElementById("openGiftBtn");
 const startMemoryBtn = document.getElementById("startMemoryBtn");
 
 const memoryImage = document.getElementById("memoryImage");
+const photoCard = document.getElementById("photoCard");
 const photoCounter = document.getElementById("photoCounter");
 const dotsContainer = document.getElementById("dotsContainer");
 
@@ -67,7 +68,6 @@ function updatePhoto() {
         dot.classList.toggle("active", index === currentIndex);
     });
 
-    // Show final message only on the last photo
     if (currentIndex === photos.length - 1) {
         finalMessage.classList.remove("hidden");
     } else {
@@ -131,7 +131,7 @@ replayBtn.addEventListener("click", () => {
     updatePhoto();
 });
 
-// Keyboard support for laptop
+// Keyboard arrow support for laptop
 document.addEventListener("keydown", (event) => {
     if (!memorySection.classList.contains("hidden")) {
         if (event.key === "ArrowRight") {
@@ -144,27 +144,68 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// Swipe support for mobile
+// Mobile swipe support
 let touchStartX = 0;
 let touchEndX = 0;
 
-memoryImage.addEventListener("touchstart", (event) => {
-    touchStartX = event.changedTouches[0].screenX;
+// Attach swipe to the full photo card, not just the image
+photoCard.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].clientX;
 });
 
-memoryImage.addEventListener("touchend", (event) => {
-    touchEndX = event.changedTouches[0].screenX;
+photoCard.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].clientX;
     handleSwipe();
 });
 
 function handleSwipe() {
     const swipeDistance = touchEndX - touchStartX;
 
-    if (swipeDistance < -50) {
+    if (swipeDistance < -40) {
         nextPhoto();
     }
 
-    if (swipeDistance > 50) {
+    if (swipeDistance > 40) {
         previousPhoto();
     }
 }
+
+// Mouse drag support for laptop
+let mouseStartX = 0;
+let mouseEndX = 0;
+let isDragging = false;
+
+photoCard.addEventListener("mousedown", (event) => {
+    isDragging = true;
+    mouseStartX = event.clientX;
+});
+
+photoCard.addEventListener("mouseup", (event) => {
+    if (!isDragging) return;
+
+    mouseEndX = event.clientX;
+    isDragging = false;
+
+    handleMouseDrag();
+});
+
+photoCard.addEventListener("mouseleave", () => {
+    isDragging = false;
+});
+
+function handleMouseDrag() {
+    const dragDistance = mouseEndX - mouseStartX;
+
+    if (dragDistance < -40) {
+        nextPhoto();
+    }
+
+    if (dragDistance > 40) {
+        previousPhoto();
+    }
+}
+
+// Prevent image dragging issue on laptop
+memoryImage.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+});
