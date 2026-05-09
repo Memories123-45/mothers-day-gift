@@ -1,5 +1,7 @@
 // Photos used in the memory slider
 // Make sure these names exactly match your image file names.
+// Photos used in the memory slider
+// Make sure these names exactly match your image file names.
 const photos = [
     "photo1.jpeg",
     "photo2.jpeg",
@@ -12,6 +14,15 @@ const photos = [
     "photo9.jpeg",
     "photo10.jpeg"
 ];
+
+// Preload all images so they appear faster while swiping
+const preloadedImages = [];
+
+photos.forEach((photo) => {
+    const img = new Image();
+    img.src = photo;
+    preloadedImages.push(img);
+});
 
 // Selecting HTML elements
 const giftSection = document.getElementById("giftSection");
